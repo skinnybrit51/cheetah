@@ -1,0 +1,218 @@
+@row_height: 30px;
+@scrollbar_width: 17px;
+
+// TODO - TEMP to be removed
+#table-1, #table-2 {
+  display: inline-block;
+  margin: 50px;
+}
+
+.booty-grid {
+  box-sizing: border-box;
+  background-color: #fefef3;
+  border-collapse: collapse;
+  //  border: 1px solid blue;   // this causes height not to be exact
+  position: relative;
+
+  .table-container-header {
+    position: relative;
+    height: @row_height;
+    overflow-x: hidden;
+  }
+
+  .table-container-body {
+    position: relative;
+    overflow: hidden;
+
+    .edit-box {
+      position: absolute;
+    }
+
+    .column-resize-line {
+      position: absolute;
+      top: 0px;
+      width: 2px;
+      height: 100%;
+      background-color: blue;
+      display: none;
+      cursor: e-resize;
+    }
+  }
+
+  .scrollbar-container-horizontal .scrollbar-horizontal {
+    position: absolute;
+    background-color: #dde;
+    overflow-x: auto;
+    left: 0;
+    bottom: 0;
+    width: calc(~"100% - " @scrollbar_width);
+    height: @scrollbar_width;
+    .scrollbar-scroller {
+      background-color: #bbd;
+      height: 100%;
+      width: 50px;
+    }
+  }
+
+  .scrollbar-container-vertical {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: @scrollbar_width;
+    right: 0;
+  }
+
+  .scrollbar-container-vertical .scrollbar-deadspace-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: @row_height;
+    width: @scrollbar_width;
+    background-color: red;
+  }
+
+  .scrollbar-container-vertical .scrollbar-deadspace-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: @scrollbar_width;
+    width: @scrollbar_width;
+    background-color: red;
+  }
+
+  .scrollbar-container-vertical .scrollbar-vertical {
+    position: absolute;
+    top: @row_height;
+    height: calc(~"100% - " @scrollbar_width ~"-" @row_height);
+    background-color: #dde;
+    width: @scrollbar_width;
+    right: 0;
+
+    .scrollbar-scroller {
+      top: 0 + @row_height + 2; // 2 for borders
+      background-color: #bbd;
+      height: 50px;
+    }
+  }
+
+  table {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 0;
+    position: relative;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  th, td {
+    padding: 0;
+    // order collapse does not seem to work in chrome
+    border-top: 1px solid blue;
+    border-left: 1px solid blue;
+    border-bottom: 1px solid blue;
+    &:last-child {
+      border-right: 1px solid blue;
+    }
+    background-color: #fff;
+    position: relative;
+    background-clip: padding-box;
+    min-width: 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: @row_height;
+
+  }
+
+  td {
+    border: none;
+    border-left: 1px solid blue;
+    border-bottom: 1px solid blue;
+
+    &:last-child {
+      border-right: 1px solid blue;
+    }
+  }
+
+  th[data-property-name="empty-last-column"], td[data-property-name="empty-last-column"] {
+    background-color: inherit;
+    border: none;
+  }
+
+  .table-header {
+    height: @row_height;
+
+    th {
+//      border-bottom: none;
+      background-color: #ccc;
+      color: #fff;
+//      padding: 5px;
+
+      .column-resize {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: inherit;
+        width: 5px;
+
+        &:hover {
+          background-color: orange;
+          cursor: e-resize;
+        }
+      }
+    }
+
+    th.sortable {
+      cursor: pointer;
+    }
+
+    .sortIcon() {
+      position: absolute;
+      right: 5px; // depends on width of .column-resize
+      top: 5px;
+      height: inherit;
+    }
+
+    th.sorted-ascending .sort-icon {
+      .sortIcon();
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid black;
+    }
+
+    th.sorted-descending .sort-icon {
+      .sortIcon();
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid black;
+    }
+
+  }
+
+  .table-body {
+    bottom: 0px;
+    td > div {
+      -moz-box-sizing: border-box;  // only required for FF
+      padding: 5px;
+      height: 100%;
+    }
+
+    td.selected {
+      > div {
+        -webkit-box-shadow: inset 0px 0px 0px 2px orange;
+        -moz-box-shadow: inset 0px 0px 0px 2px orange;
+        box-shadow: inset 0px 0px 0px 2px orange;
+      }
+    }
+  }
+
+}

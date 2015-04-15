@@ -1,0 +1,183 @@
+#table-1,
+#table-2 {
+  display: inline-block;
+  margin: 50px;
+}
+.booty-grid {
+  box-sizing: border-box;
+  background-color: #fefef3;
+  border-collapse: collapse;
+  position: relative;
+}
+.booty-grid .table-container-header {
+  position: relative;
+  height: 30px;
+  overflow-x: hidden;
+}
+.booty-grid .table-container-body {
+  position: relative;
+  overflow: hidden;
+}
+.booty-grid .table-container-body .edit-box {
+  position: absolute;
+}
+.booty-grid .table-container-body .column-resize-line {
+  position: absolute;
+  top: 0px;
+  width: 2px;
+  height: 100%;
+  background-color: blue;
+  display: none;
+  cursor: e-resize;
+}
+.booty-grid .scrollbar-container-horizontal .scrollbar-horizontal {
+  position: absolute;
+  background-color: #dde;
+  overflow-x: auto;
+  left: 0;
+  bottom: 0;
+  width: calc(100% -  17px);
+  height: 17px;
+}
+.booty-grid .scrollbar-container-horizontal .scrollbar-horizontal .scrollbar-scroller {
+  background-color: #bbd;
+  height: 100%;
+  width: 50px;
+}
+.booty-grid .scrollbar-container-vertical {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 17px;
+  right: 0;
+}
+.booty-grid .scrollbar-container-vertical .scrollbar-deadspace-top {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  width: 17px;
+  background-color: red;
+}
+.booty-grid .scrollbar-container-vertical .scrollbar-deadspace-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 17px;
+  width: 17px;
+  background-color: red;
+}
+.booty-grid .scrollbar-container-vertical .scrollbar-vertical {
+  position: absolute;
+  top: 30px;
+  height: calc(100% -  17px - 30px);
+  background-color: #dde;
+  width: 17px;
+  right: 0;
+}
+.booty-grid .scrollbar-container-vertical .scrollbar-vertical .scrollbar-scroller {
+  top: 32px;
+  background-color: #bbd;
+  height: 50px;
+}
+.booty-grid table {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-spacing: 0;
+  table-layout: fixed;
+  width: 0;
+  position: relative;
+}
+.booty-grid table:focus {
+  outline: none;
+}
+.booty-grid th,
+.booty-grid td {
+  padding: 0;
+  border-top: 1px solid blue;
+  border-left: 1px solid blue;
+  border-bottom: 1px solid blue;
+  background-color: #fff;
+  position: relative;
+  background-clip: padding-box;
+  min-width: 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 30px;
+}
+.booty-grid th:last-child,
+.booty-grid td:last-child {
+  border-right: 1px solid blue;
+}
+.booty-grid td {
+  border: none;
+  border-left: 1px solid blue;
+  border-bottom: 1px solid blue;
+}
+.booty-grid td:last-child {
+  border-right: 1px solid blue;
+}
+.booty-grid th[data-property-name="empty-last-column"],
+.booty-grid td[data-property-name="empty-last-column"] {
+  background-color: inherit;
+  border: none;
+}
+.booty-grid .table-header {
+  height: 30px;
+}
+.booty-grid .table-header th {
+  background-color: #ccc;
+  color: #fff;
+}
+.booty-grid .table-header th .column-resize {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: inherit;
+  width: 5px;
+}
+.booty-grid .table-header th .column-resize:hover {
+  background-color: orange;
+  cursor: e-resize;
+}
+.booty-grid .table-header th.sortable {
+  cursor: pointer;
+}
+.booty-grid .table-header th.sorted-ascending .sort-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: inherit;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+.booty-grid .table-header th.sorted-descending .sort-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: inherit;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+.booty-grid .table-body {
+  bottom: 0px;
+}
+.booty-grid .table-body td > div {
+  -moz-box-sizing: border-box;
+  padding: 5px;
+  height: 100%;
+}
+.booty-grid .table-body td.selected > div {
+  -webkit-box-shadow: inset 0px 0px 0px 2px orange;
+  -moz-box-shadow: inset 0px 0px 0px 2px orange;
+  box-shadow: inset 0px 0px 0px 2px orange;
+}
