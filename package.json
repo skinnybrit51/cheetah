@@ -1,6 +1,6 @@
 {
     "name": "cheetah",
-    "description": "Rows and columns are rendered virtual, making this grid exceedingly fast to display.",
+    "description": "Only the rows and columns being viewed are rendered, thus making this grid exceedingly fast to render.",
     "version": "1.0.0",
     "main": "index.js",
     "keywords": [
