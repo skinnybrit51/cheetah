@@ -59,6 +59,15 @@ describe('Selection Model', function () {
                 css: function () {
 
                 }
+            },
+            scrollbarY: {
+                scroller: {
+                    height: function () {
+                        return 10;
+                    },
+                    css: function () {
+                    }
+                }
             }
         };
         this.grid = {
