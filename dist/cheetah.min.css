@@ -76,9 +76,11 @@
   right: 0;
 }
 .booty-grid .scrollbar-container-vertical .scrollbar-vertical .scrollbar-scroller {
-  top: 32px;
+  top: 0;
+  left: 0;
   background-color: #bbd;
-  height: 50px;
+  position: absolute;
+  width: 100%;
 }
 .booty-grid table {
   box-sizing: border-box;

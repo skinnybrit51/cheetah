@@ -89,9 +89,11 @@
     right: 0;
 
     .scrollbar-scroller {
-      top: 0 + @row_height + 2; // 2 for borders
+      top: 0;
+      left: 0;
       background-color: #bbd;
-      height: 50px;
+      position: absolute;
+      width:  100%;
     }
   }
 
